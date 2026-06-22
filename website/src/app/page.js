@@ -33,6 +33,27 @@ export default function Home() {
     fetchLeaderboard();
   }, [activeTab]);
 
+  // Scroll reveal animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -62,7 +83,7 @@ export default function Home() {
           <form onSubmit={handleSearchSubmit}>
             <input
               type="text"
-              placeholder="Search player username or UUID..."
+              placeholder="Enter player name"
               className="search-input-nav"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -73,7 +94,7 @@ export default function Home() {
 
       <main>
         {/* Hero Welcome */}
-        <section className="glass-panel" style={{ padding: '3rem 2.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <section className="glass-panel animate-fade-in" style={{ padding: '3rem 2.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <h1 className="gradient-title" style={{ fontSize: '3.5rem', lineHeight: '1.1' }}>
             MaceCup.xyz
           </h1>
@@ -84,7 +105,7 @@ export default function Home() {
           <form onSubmit={handleSearchSubmit} style={{ maxWidth: '500px', margin: '0 auto', display: 'flex', gap: '0.75rem' }}>
             <input
               type="text"
-              placeholder="Enter player name (e.g. Benji)..."
+              placeholder="Enter player name"
               className="search-input-nav"
               style={{ width: '100%', padding: '0.8rem 1.5rem', fontSize: '1rem', borderRadius: '12px' }}
               value={searchQuery}
@@ -110,7 +131,7 @@ export default function Home() {
         </section>
 
         {/* Leaderboard Card */}
-        <section className="glass-panel">
+        <section className="glass-panel scroll-reveal animate-delay-1">
           <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '0.2rem' }}>Leaderboards</h2>
           <p className="subtitle" style={{ marginBottom: '1.5rem' }}>Top 50 active competitive players on the MaceCup Network</p>
           
@@ -127,8 +148,9 @@ export default function Home() {
           </div>
 
           {leaderboardLoading ? (
-            <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-secondary)' }}>
-              Loading leaderboard rankings...
+            <div className="spinner-container">
+              <div className="spinner"></div>
+              <div style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>Loading rankings...</div>
             </div>
           ) : leaderboard.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-secondary)' }}>
@@ -196,7 +218,12 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>&copy; {new Date().getFullYear()} MaceCup Network. Inspired by cpvp.gg. Handcrafted and verified.</p>
+        <p>&copy; {new Date().getFullYear()} MaceCup.xyz. Inspired by cpvp.gg. Handcrafted and verified.</p>
+        <div style={{ marginTop: '0.75rem', display: 'flex', justifyContent: 'center', gap: '1rem', fontSize: '0.85rem' }}>
+          <Link href="/privacy" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Privacy Policy</Link>
+          <span style={{ color: 'var(--panel-border)' }}>•</span>
+          <Link href="/terms" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Terms of Service</Link>
+        </div>
       </footer>
     </>
   );

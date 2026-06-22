@@ -76,7 +76,7 @@ export default function PlayerProfile({ params }) {
           <form onSubmit={handleSearchSubmit}>
             <input
               type="text"
-              placeholder="Search player..."
+              placeholder="Enter player name"
               className="search-input-nav"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -283,7 +283,12 @@ export default function PlayerProfile({ params }) {
       </main>
 
       <footer>
-        <p>&copy; {new Date().getFullYear()} MaceCup Network. Inspired by cpvp.gg. Handcrafted and verified.</p>
+        <p>&copy; {new Date().getFullYear()} MaceCup.xyz. Inspired by cpvp.gg. Handcrafted and verified.</p>
+        <div style={{ marginTop: '0.75rem', display: 'flex', justifyContent: 'center', gap: '1rem', fontSize: '0.85rem' }}>
+          <Link href="/privacy" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Privacy Policy</Link>
+          <span style={{ color: 'var(--panel-border)' }}>•</span>
+          <Link href="/terms" style={{ color: 'var(--text-secondary)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Terms of Service</Link>
+        </div>
       </footer>
     </>
   );
