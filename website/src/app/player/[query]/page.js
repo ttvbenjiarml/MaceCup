@@ -70,7 +70,7 @@ export default function PlayerProfile({ params }) {
       <header>
         <div className="nav-container">
           <Link href="/" className="brand-link">
-            MaceCup <span className="brand-tag">PvP</span>
+            MaceCup.xyz
           </Link>
           
           <form onSubmit={handleSearchSubmit}>
@@ -175,7 +175,7 @@ export default function PlayerProfile({ params }) {
                 <div className="stats-cards-grid">
                   <div className="stat-item-card">
                     <span className="stat-item-label">Match Rating</span>
-                    <span className="stat-item-value" style={{ color: '#c084fc' }}>{playerData.stats.rating}</span>
+                    <span className="stat-item-value" style={{ color: 'var(--accent-orange)' }}>{playerData.stats.rating}</span>
                   </div>
 
                   <div className="stat-item-card">
@@ -204,7 +204,7 @@ export default function PlayerProfile({ params }) {
 
                   <div className="stat-item-card">
                     <span className="stat-item-label">K/D Ratio</span>
-                    <span className="stat-item-value" style={{ color: '#22d3ee' }}>{playerData.stats.kd.toFixed(2)}</span>
+                    <span className="stat-item-value" style={{ color: 'var(--text-primary)' }}>{playerData.stats.kd.toFixed(2)}</span>
                   </div>
 
                   <div className="stat-item-card">

@@ -11,29 +11,6 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState('wins');
   const [leaderboard, setLeaderboard] = useState([]);
   const [leaderboardLoading, setLeaderboardLoading] = useState(true);
-  const [status, setStatus] = useState({ onlinePlayers: 0, servers: {} });
-  const [statusLoading, setStatusLoading] = useState(true);
-
-  // Fetch server status
-  useEffect(() => {
-    async function fetchStatus() {
-      try {
-        const res = await fetch('/api/status');
-        if (res.ok) {
-          const data = await res.json();
-          setStatus(data);
-        }
-      } catch (err) {
-        console.error('Failed to fetch status', err);
-      } finally {
-        setStatusLoading(false);
-      }
-    }
-    fetchStatus();
-    const interval = setInterval(fetchStatus, 15000); // refresh every 15s
-    return () => clearInterval(interval);
-  }, []);
-
   // Fetch leaderboard data when activeTab changes
   useEffect(() => {
     async function fetchLeaderboard() {
@@ -79,7 +56,7 @@ export default function Home() {
       <header>
         <div className="nav-container">
           <Link href="/" className="brand-link">
-            MaceCup <span className="brand-tag">PvP</span>
+            MaceCup.xyz
           </Link>
           
           <form onSubmit={handleSearchSubmit}>
@@ -116,7 +93,7 @@ export default function Home() {
             <button
               type="submit"
               style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #06b6d4 100%)',
+                background: 'var(--gradient-accent)',
                 border: 'none',
                 color: '#fff',
                 fontWeight: '700',
@@ -194,7 +171,7 @@ export default function Home() {
                           </Link>
                         </div>
                       </td>
-                      <td style={{ textAlign: 'center', fontWeight: '600', color: '#a855f7' }}>
+                      <td style={{ textAlign: 'center', fontWeight: '600', color: 'var(--accent-orange)' }}>
                         {player.rating}
                       </td>
                       <td style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
@@ -203,7 +180,7 @@ export default function Home() {
                       <td style={{ textAlign: 'center', color: 'var(--text-secondary)' }}>
                         {player.kills} / {player.deaths}
                       </td>
-                      <td style={{ textAlign: 'center', color: '#22d3ee', fontWeight: '500' }}>
+                      <td style={{ textAlign: 'center', color: 'var(--text-primary)', fontWeight: '500' }}>
                         {player.kd.toFixed(2)}
                       </td>
                       <td style={{ textAlign: 'right' }} className="bold-value">
