@@ -98,7 +98,7 @@ export default function Home() {
         {/* Hero Welcome */}
         <section className="glass-panel" style={{ padding: '3rem 2.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <h1 className="gradient-title" style={{ fontSize: '3.5rem', lineHeight: '1.1' }}>
-            MaceCup PvP Network
+            MaceCup.xyz
           </h1>
           <p className="subtitle" style={{ fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
             The premier competitive Minecraft Crystal PvP network. Track live leaderboards, stats, custom emotes, and active player ratings.
@@ -132,46 +132,19 @@ export default function Home() {
           </form>
         </section>
 
-        {/* Server Status Indicators */}
-        <section className="status-grid">
-          <div className="status-card">
-            <span className="status-label">Network Players</span>
-            <span className="status-value">
-              <span className="indicator online"></span>
-              {statusLoading ? '...' : status.onlinePlayers}
-            </span>
-          </div>
-          
-          <div className="status-card">
-            <span className="status-label">Lobby-Practice</span>
-            <span className="status-value">
-              <span className={`indicator ${status.servers?.['lobby-practice'] ? 'online' : 'active'}`}></span>
-              {statusLoading ? '...' : status.servers?.['lobby-practice'] || 'OFFLINE'}
-            </span>
-          </div>
-
-          <div className="status-card">
-            <span className="status-label">Event-1 Arena</span>
-            <span className="status-value">
-              <span className={`indicator ${status.servers?.['event-1'] === 'WAITING' ? 'waiting' : status.servers?.['event-1'] ? 'active' : 'online'}`}></span>
-              {statusLoading ? '...' : status.servers?.['event-1'] || 'OFFLINE'}
-            </span>
-          </div>
-        </section>
-
         {/* Leaderboard Card */}
         <section className="glass-panel">
           <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '0.2rem' }}>Leaderboards</h2>
           <p className="subtitle" style={{ marginBottom: '1.5rem' }}>Top 50 active competitive players on the MaceCup Network</p>
           
           <div className="tabs-container">
-            {['wins', 'kills', 'rating', 'slam', 'cashcup'].map((cat) => (
+            {['wins', 'kills'].map((cat) => (
               <button
                 key={cat}
                 className={`tab-btn ${activeTab === cat ? 'active' : ''}`}
                 onClick={() => setActiveTab(cat)}
               >
-                {cat === 'slam' ? 'Highest Slam' : cat === 'cashcup' ? 'Cash Cup' : getCategoryLabel(cat)}
+                {getCategoryLabel(cat)}
               </button>
             ))}
           </div>
@@ -195,7 +168,7 @@ export default function Home() {
                     <th style={{ textAlign: 'center' }}>Wins (Solo/Duo)</th>
                     <th style={{ textAlign: 'center' }}>Kills / Deaths</th>
                     <th style={{ textAlign: 'center' }}>K/D</th>
-                    <th style={{ textAlign: 'right' }}>{activeTab === 'slam' ? 'Highest Slam' : activeTab === 'cashcup' ? 'Points' : getCategoryLabel(activeTab)}</th>
+                    <th style={{ textAlign: 'right' }}>{getCategoryLabel(activeTab)}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -242,62 +215,6 @@ export default function Home() {
               </table>
             </div>
           )}
-        </section>
-
-        {/* Media / Community Slider section */}
-        <section className="media-section">
-          <h2 style={{ fontSize: '1.75rem', fontWeight: '800', marginBottom: '0.2rem' }}>Community Highlights</h2>
-          <p className="subtitle">Epic crystal PvP clips and tournament final highlights from cpvp.gg community</p>
-          
-          <div className="media-slider-container">
-            <div className="media-card" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}>
-                <iframe
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                  src="https://www.youtube.com/embed/OOmQ2sK7C2M"
-                  title="Crystal PvP Montages"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="media-info">
-                <h3 className="media-title">HT1 Crystal PvP Combat</h3>
-                <p className="media-desc">High-Tier mechanics showcasing insane placement speeds, d-tapping, and totem pop execution.</p>
-              </div>
-            </div>
-
-            <div className="media-card" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}>
-                <iframe
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                  src="https://www.youtube.com/embed/5T8D_65T_2w"
-                  title="CPvP Mechanics"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="media-info">
-                <h3 className="media-title">Warmup Arena Dominance</h3>
-                <p className="media-desc">Epic lobby practice warmups and movement techniques utilizing custom wind charge jumps.</p>
-              </div>
-            </div>
-
-            <div className="media-card" style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}>
-                <iframe
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                  src="https://www.youtube.com/embed/Wd_BapP4R1U"
-                  title="Cash Cup Highlights"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="media-info">
-                <h3 className="media-title">Season 1 Cash Cup Finals</h3>
-                <p className="media-desc">Competitive matches between the top leaderboard ratings fighting for the ultimate cash prize.</p>
-              </div>
-            </div>
-          </div>
         </section>
       </main>
 
