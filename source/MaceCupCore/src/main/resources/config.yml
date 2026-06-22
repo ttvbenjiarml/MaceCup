@@ -1,0 +1,95 @@
+server-role: LOBBY_PRACTICE
+server-name: lobby-practice
+network-name: MaceCup
+domain: macecup.xyz
+resource-pack:
+  auto-install: true
+  file: MaceCupResourcePack.zip
+  export-path: resource-pack/MaceCupResourcePack.zip
+  update-server-properties: false
+  url: ''
+  sha1: 'a56922eb1a1a501342138d03e6654bf66800bd50'
+  required: true
+  decline-action: KICK
+  prompt: 'Our server uses a custom resource pack!'
+datapack:
+  file: MaceCupDatapack.zip
+  worlds: [world, event_world]
+events:
+  max-players: 100
+  solo-size: 100
+  duo-teams: 50
+  countdown-seconds: 30
+  border-minutes: 28
+  border-warning-seconds: 30
+  final-border-size: 80
+  event-servers: [event-1]
+arena-selection:
+  max-blocks: 2000000
+purge:
+  normal-pity-step: 0.25
+  vip-pity-step: 0.50
+arenas:
+  solo:
+    world: event_world
+    center: { x: -650, y: 72, z: 0 }
+    border-size: 900
+    width: 900
+    depth: 900
+    spawns: []
+  duo:
+    world: event_world
+    center: { x: 650, y: 72, z: 0 }
+    border-size: 900
+    width: 900
+    depth: 900
+    spawns: []
+loot:
+  event: ['WIND_CHARGE:8:16','ENDER_PEARL:2:6','GOLDEN_APPLE:1:3','COBWEB:4:12','TOTEM_OF_UNDYING:1:1','COOKED_BEEF:16:32']
+mysql:
+  jdbc-url: 'jdbc:mysql://127.0.0.1:3306/macecup?useSSL=false&allowPublicKeyRetrieval=true'
+  username: macecup
+  password: ''
+  login-timeout-seconds: 2
+  retry-cooldown-seconds: 60
+redis:
+  host: 127.0.0.1
+  port: 6379
+  timeout-millis: 1000
+performance:
+  enabled: true
+  monitor-interval-ticks: 100
+  dynamic-view-distance:
+    enabled: true
+    high: { view: 10, simulation: 6 }
+    medium: { view: 8, simulation: 5 }
+    low: { view: 6, simulation: 4 }
+    critical: { view: 4, simulation: 3 }
+  item-cleanup:
+    enabled: true
+    max-items-per-world: 80
+    skip-empty-worlds: true
+  world-defaults:
+    enabled: true
+    do-mob-spawning: false
+    do-fire-tick: false
+    random-tick-speed: 0
+  memory-trim-every-runs: 0
+scoreboard:
+  update-ticks: 40
+bossbar:
+  update-ticks: 20
+practice:
+  max-bots: 24
+cosmetics:
+  event-servers-enabled: false
+custom-emotes:
+  require-approval: true
+  cooldown-seconds: 8
+  max-length: 96
+  blacklist: [slur, badword]
+map:
+  generate-default-worlds: true
+  event-width: 1250
+  event-depth: 1250
+self-test-on-start: false

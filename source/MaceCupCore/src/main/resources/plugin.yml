@@ -1,0 +1,35 @@
+name: MaceCupCore
+version: 1.0.0
+main: com.macecup.core.MaceCupCore
+api-version: '1.21'
+author: MaceCup
+softdepend: [PlaceholderAPI, WorldGuard, WorldEdit, FastAsyncWorldEdit, DecentHolograms, HolographicDisplays, Citizens, TAB, Vault, LuckPerms]
+commands:
+  mace:
+    description: MaceCup network command
+    aliases: [macecup, mcup]
+permissions:
+  macecup.host: { default: op }
+  macecup.cancelhost: { default: op }
+  macecup.admin: { default: op }
+  macecup.bypass: { default: op }
+  macecup.cosmetics: { default: true }
+  macecup.top: { default: true }
+  macecup.stats: { default: true }
+  macecup.party: { default: true }
+  macecup.practice: { default: true }
+  macecup.hats: { default: true }
+  macecup.emotes: { default: true }
+  macecup.leaderboard: { default: true }
+  macecup.emotes.custom: { default: false }
+  macecup.emotes.custom.approve: { default: op }
+  macecup.selftest: { default: op }
+  macecup.purge.vip: { default: false }
+  macecup.purge.boost.50: { default: false }
+  macecup.purge.guaranteed: { default: false }
+  macecup.event.guaranteed: { default: false }
+  macecup.arena.save: { default: op }
+  macecup.arena.regen: { default: op }
+  macecup.arena.wand: { default: op }
+  macecup.admin.build: { default: op }
+  macecup.event.manage: { default: op }

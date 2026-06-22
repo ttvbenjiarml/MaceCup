@@ -1,0 +1,10 @@
+plugins { id 'java' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+tasks.withType(JavaCompile).configureEach { options.encoding='UTF-8'; options.release=21 }
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from('../../shared/datapack') { include 'MaceCupDatapack.zip' }
+    from('../../shared/resource-pack') { include 'MaceCupResourcePack.zip' }
+}
+jar { archiveFileName='MaceCupCore.jar' }
+dependencies { compileOnly 'io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT'; compileOnly 'me.clip:placeholderapi:2.11.6' }

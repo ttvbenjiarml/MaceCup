@@ -1,0 +1,27 @@
+icon-title:
+  change-interval: 700
+  texts:
+    - '&d'
+    - '&f'
+    - '&d'
+
+icon-event:
+  change-interval: 700
+  texts:
+    - '&d'
+    - '&f'
+    - '&d'
+
+time:
+  change-interval: 3000
+  texts:
+    - '&7'
+    - '&7'
+
+barcolors:
+  change-interval: 1000
+  texts:
+    - PURPLE
+    - WHITE
+    - RED
+    - BLUE

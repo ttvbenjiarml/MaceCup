@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: change-root
+      MYSQL_DATABASE: macecup
+      MYSQL_USER: macecup
+      MYSQL_PASSWORD: change-me
+    ports: ['127.0.0.1:3306:3306']
+    volumes: ['./shared/mysql/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro', 'mysql-data:/var/lib/mysql']
+  redis:
+    image: redis:7-alpine
+    command: ['redis-server', '/usr/local/etc/redis/redis.conf']
+    ports: ['127.0.0.1:6379:6379']
+    volumes: ['./shared/redis/redis-example.conf:/usr/local/etc/redis/redis.conf:ro', 'redis-data:/data']
+volumes:
+  mysql-data: {}
+  redis-data: {}

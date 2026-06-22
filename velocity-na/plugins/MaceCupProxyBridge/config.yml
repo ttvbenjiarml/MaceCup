@@ -1,0 +1,24 @@
+region: NA
+lobby-server: lobby-practice
+event-servers: [event-1]
+protected-event-servers: true
+resource-pack:
+  enabled: true
+  host-enabled: true
+  bind-address: 0.0.0.0
+  port: 24454
+  path: /resource-pack/MaceCupResourcePack.zip
+  public-host: ''
+  public-url: ''
+  required: true
+  prompt: Our server uses a custom resource pack!
+mysql:
+  jdbc-url: 'jdbc:mysql://127.0.0.1:3306/macecup?useSSL=false&allowPublicKeyRetrieval=true'
+  username: 'macecup'
+  password: ''
+proxies:
+  geoip-routing-enabled: false
+  na-address: 'na.macecup.xyz'
+  na-port: 25565
+  eu-address: 'eu.macecup.xyz'
+  eu-port: 25565

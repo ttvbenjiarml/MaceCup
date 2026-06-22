@@ -1,0 +1,6 @@
+{
+    "java.jdt.ls.java.home": "E:\\Game Work\\MaceCup-Network\\.tools\\jdk-21.0.11+10",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.gradle.wrapper.enabled": true,
+    "java.compile.nullAnalysis.mode": "disabled"
+}

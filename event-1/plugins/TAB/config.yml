@@ -1,0 +1,212 @@
+header-footer:
+  enabled: true
+  designs:
+    default:
+      header:
+      - ''
+      - '&f'
+      - ' %player%    %online%    %macecup_event_state%    %macecup_event_mode%'
+      - '&8&m                                                '
+      footer:
+      - '&8&m                                                '
+      - ' %macecup_event_alive%    %macecup_kills%   '
+      - ''
+      - ' %ping%ms'
+      - ''
+tablist-name-formatting:
+  enabled: true
+  disable-condition: '%world%=disabledworld'
+scoreboard-teams:
+  enabled: true
+  enable-collision: true
+  invisible-nametags: false
+  sorting-types:
+  - GROUPS:owner,admin,host,vipplus,vip,default
+  - PLACEHOLDER_A_TO_Z:%player%
+  case-sensitive-sorting: false
+  can-see-friendly-invisibles: false
+  disable-condition: '%world%=disabledworld'
+playerlist-objective:
+  enabled: false
+  value: '%ping%'
+  fancy-value: ' %ping%ms'
+  title: 
+  render-type: INTEGER
+  disable-condition: '%world%=disabledworld'
+belowname-objective:
+  enabled: true
+  value: '%macecup_kills%'
+  fancy-value: ' %macecup_kills%'
+  fancy-value-default: ' 0'
+  title: ''
+  disable-condition: '%world%=disabledworld'
+prevent-spectator-effect:
+  enabled: false
+bossbar:
+  enabled: false
+  toggle-command: /bossbar
+  remember-toggle-choice: false
+  hidden-by-default: false
+  bars:
+    ServerInfo:
+      style: PROGRESS
+      color: PURPLE
+      progress: '100'
+      text: '&f'
+scoreboard:
+  enabled: true
+  toggle-command: /sb
+  remember-toggle-choice: false
+  hidden-by-default: false
+  delay-on-join-milliseconds: 0
+  scoreboards:
+    scoreboard-1.20.3+:
+      title: '&f'
+      display-condition: '%player-version-id%>=765;%bedrock%=false'
+      lines:
+      - ' %macecup_event_mode%'
+      - ' %macecup_event_state%'
+      - ''
+      - ' %macecup_event_alive%'
+      - ' %macecup_kills%'
+      - ''
+      - ' %macecup_highest_slam%'
+      - ''
+      - ''
+    scoreboard:
+      title: '&f'
+      lines:
+      - ' %macecup_event_mode%'
+      - ' %macecup_event_state%'
+      - ''
+      - ' %macecup_event_alive%'
+      - ' %macecup_kills%'
+      - ''
+      - ' %macecup_highest_slam%'
+      - ''
+      - ''
+layout:
+  enabled: true
+  direction: COLUMNS
+  default-skin: mineskin:37e93c8e12cd426cb28fce31969e0674
+  enable-remaining-players-text: true
+  remaining-players-text: '... and %s more'
+  empty-slot-ping-value: 1000
+  layouts:
+    default:
+      slot-count: 80
+      fixed-slots:
+      - 1|&f
+      - '2|&8&m                       '
+      - 3| %macecup_event_alive%
+      - 4| %online%
+      - 5| %macecup_event_state%
+      - 6| %macecup_event_mode%
+      - '7|&8&m                       '
+      - 8| %macecup_kills%
+      - 9|
+      - '10|&8&m                       '
+      groups:
+        staff:
+          display-condition: permission:tab.staff
+          slots:
+          - 11-25
+        paid:
+          display-condition: permission:macecup.purge.vip
+          slots:
+          - 26-40
+        players:
+          slots:
+          - 41-80
+ping-spoof:
+  enabled: false
+  value: 0
+global-playerlist:
+  enabled: false
+  display-others-as-spectators: false
+  display-vanished-players-as-spectators: true
+  isolate-unlisted-servers: false
+  update-latency: true
+  spy-servers: []
+  server-groups:
+    network:
+    - lobby-practice
+    - event-1
+placeholders:
+  date-format: dd.MM.yyyy
+  time-format: '[HH:mm:ss / h:mm a]'
+  time-offset: 0
+  register-tab-expansion: false
+  locale: en-US
+placeholder-output-replacements:
+  '%essentials_vanished%':
+    'yes': '&7| Vanished'
+    'no': ''
+conditions:
+  nick:
+    conditions:
+    - '%player%=%essentials_nickname%'
+    true: '%player%'
+    false: ~%essentials_nickname%
+placeholder-refresh-intervals:
+  default-refresh-interval: 500
+  '%server_uptime%': 1000
+  '%server_tps_1_colored%': 1000
+  '%server_unique_joins%': 5000
+  '%player_health%': 200
+  '%player_ping%': 1000
+  '%ping%': 1000
+  '%online%': 1000
+  '%vault_prefix%': 1000
+  '%macecup_kills%': 1000
+  '%macecup_highest_slam%': 2000
+  '%macecup_event_state%': 1000
+  '%macecup_event_arena%': 1000
+  '%macecup_event_mode%': 1000
+  '%macecup_event_alive%': 1000
+assign-groups-by-permissions: false
+primary-group-finding-list:
+- owner
+- admin
+- host
+- vipplus
+- vip
+- default
+permission-refresh-interval: 1000
+debug: false
+mysql:
+  enabled: false
+  host: 127.0.0.1
+  port: 3306
+  database: tab
+  username: user
+  password: ''
+  useSSL: true
+proxy-support:
+  enabled: true
+  channel-name-suffix: custom
+  type: PLUGIN
+  plugin:
+    name: RedisBungee
+  redis:
+    url: redis://localhost:6379/0
+  rabbitmq:
+    exchange: plugin
+    url: amqp://guest:guest@localhost:5672/%2F
+components:
+  minimessage-support: true
+  disable-shadow-for-heads: true
+config-version: 6
+per-world-playerlist:
+  enabled: false
+  allow-bypass-permission: false
+  ignore-effect-in-worlds:
+  - ignoredworld
+  - build
+  shared-playerlist-world-groups:
+    network:
+    - world
+    - event_world
+compensate-for-packetevents-bug: false
+use-bukkit-permissions-manager: false
+use-online-uuid-in-tablist: true

@@ -1,0 +1,57 @@
+/lp creategroup vip
+/lp creategroup vipplus
+/lp creategroup host
+/lp creategroup admin
+/lp creategroup owner
+/lp group default permission set macecup.stats true
+/lp group default permission set macecup.top true
+/lp group default permission set macecup.party true
+/lp group default permission set macecup.practice true
+/lp group default permission set macecup.cosmetics true
+/lp group default permission set macecup.hats true
+/lp group default permission set macecup.emotes true
+/lp group default permission set macecup.leaderboard true
+/lp group vip permission set macecup.emotes.custom true
+/lp group vip permission set macecup.purge.vip true
+/lp group vipplus permission set macecup.emotes.custom true
+/lp group vipplus permission set macecup.purge.vip true
+/lp group vipplus permission set macecup.purge.guaranteed true
+/lp group vipplus permission set macecup.event.guaranteed true
+/lp group host permission set macecup.host true
+/lp group host permission set macecup.cancelhost true
+/lp group host permission set macecup.event.manage true
+/lp group host permission set tab.staff true
+/lp group admin permission set macecup.admin true
+/lp group admin permission set macecup.bypass true
+/lp group admin permission set macecup.host true
+/lp group admin permission set macecup.cancelhost true
+/lp group admin permission set macecup.event.manage true
+/lp group admin permission set macecup.arena.save true
+/lp group admin permission set macecup.arena.regen true
+/lp group admin permission set macecup.arena.wand true
+/lp group admin permission set macecup.admin.build true
+/lp group admin permission set macecup.emotes.custom.approve true
+/lp group admin permission set macecup.selftest true
+/lp group admin permission set tab.staff true
+/lp group admin permission set macecup.proxy.admin true
+/lp group owner permission set macecup.admin true
+/lp group owner permission set macecup.bypass true
+/lp group owner permission set macecup.host true
+/lp group owner permission set macecup.cancelhost true
+/lp group owner permission set macecup.event.manage true
+/lp group owner permission set macecup.arena.save true
+/lp group owner permission set macecup.arena.regen true
+/lp group owner permission set macecup.arena.wand true
+/lp group owner permission set macecup.admin.build true
+/lp group owner permission set macecup.emotes.custom.approve true
+/lp group owner permission set macecup.selftest true
+/lp group owner permission set macecup.proxy.admin true
+/lp group owner permission set tab.staff true
+/lp group owner meta setprefix 100 "&d[OWNER] "
+/lp group admin meta setprefix 90 "&c[ADMIN] "
+/lp group host meta setprefix 80 "&6[HOST] "
+/lp group vipplus meta setprefix 60 "&e[VIP+] "
+/lp group vip meta setprefix 50 "&b[VIP] "
+/lp group vipplus parent add vip
+/lp group admin parent add host
+/lp group owner parent add admin

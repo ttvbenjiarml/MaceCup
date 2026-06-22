@@ -1,0 +1,17 @@
+scoreboard:
+  enabled: true
+  toggle-command: /scoreboard
+scoreboards:
+  lobby:
+    title: '&f'
+    lines:
+      - '&d'
+      - '&d'
+      - '&c'
+      - '&b'
+      - '&a'
+      - '&e'
+  event:
+    title: '&f'
+    lines:
+      - '&c'

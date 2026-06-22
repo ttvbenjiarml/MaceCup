@@ -1,0 +1,22 @@
+config-version = "2.7"
+bind = "0.0.0.0:25565"
+motd = "<dark_gray><bold>MaceCup</bold> <gray>| <aqua><bold>Mace PvP</bold>\n<gray>IP: <aqua>macecup.xyz <dark_gray>» <white>MacePvP"
+show-max-players = 500
+online-mode = true
+force-key-authentication = true
+player-info-forwarding-mode = "modern"
+forwarding-secret-file = "forwarding.secret"
+announce-forge = false
+[servers]
+lobby-practice = "lobby-practice:25565"
+event-1 = "event-1:25565"
+try = ["lobby-practice"]
+[forced-hosts]
+"macecup.xyz" = ["lobby-practice"]
+[advanced]
+compression-threshold = 256
+compression-level = -1
+login-ratelimit = 3000
+connection-timeout = 5000
+read-timeout = 30000
+haproxy-protocol = false

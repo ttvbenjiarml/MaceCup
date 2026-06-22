@@ -1,0 +1,5 @@
+players:
+  00000000-0000-0000-0000-000000000123:
+    selftest:
+      body: throws a clean test emote.
+      approved: true

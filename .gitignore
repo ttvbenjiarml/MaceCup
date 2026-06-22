@@ -1,0 +1,27 @@
+.gradle/
+.tools/
+build/
+**/build/
+**/node_modules/
+website/.next/
+logs/
+*.log
+
+# Exclude server and plugin jars, but keep shared/dependencies
+*.jar
+!shared/dependencies/*.jar
+!shared/dependencies/**/*.jar
+
+# Exclude runtime database files and server software
+*.db
+*.mv.db
+velocity.jar
+paper-*.jar
+
+# Exclude generated maps/region files
+**/world/
+**/event_world/
+
+# Exclude luckperms generated libraries/translations
+**/luckperms/libs/
+**/luckperms/translations/

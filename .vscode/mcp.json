@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "macecup-control": {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/tools/macecup-mcp/server.mjs"
+      ],
+      "cwd": "${workspaceFolder}/tools/macecup-mcp"
+    }
+  }
+}

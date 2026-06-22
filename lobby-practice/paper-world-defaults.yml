@@ -1,0 +1,7 @@
+chunks:
+  auto-save-interval: 6000
+  max-auto-save-chunks-per-tick: 8
+entities:
+  spawning:
+    count-all-mobs-for-spawning: true
+    per-player-mob-spawns: true

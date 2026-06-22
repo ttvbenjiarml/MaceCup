@@ -1,0 +1,31 @@
+owner:
+  tabprefix: "&d &d&lOWNER &f"
+  tagprefix: "&d &d&lOWNER &f"
+  customtabname: "%player%"
+admin:
+  tabprefix: "&c &c&lADMIN &f"
+  tagprefix: "&c &c&lADMIN &f"
+  customtabname: "%player%"
+host:
+  tabprefix: "&6 &6&lHOST &f"
+  tagprefix: "&6 &6&lHOST &f"
+  customtabname: "%player%"
+vipplus:
+  tabprefix: "&e &e&lVIP+ &f"
+  tagprefix: "&e &e&lVIP+ &f"
+  customtabname: "%player%"
+vip:
+  tabprefix: "&b &b&lVIP &f"
+  tagprefix: "&b &b&lVIP &f"
+  customtabname: "%player%"
+default:
+  tabprefix: "&7 &7"
+  tagprefix: "&7 &7"
+  customtabname: "%player%"
+
+_DEFAULT_:
+  tabprefix: "&7 &7"
+  tagprefix: "&7 &7"
+  customtabname: "%player%"
+  tabsuffix: ""
+  tagsuffix: ""
